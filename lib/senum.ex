@@ -1,18 +1,18 @@
 defmodule SEnum do
   @moduledoc """
-  Documentation for SEnum.
+  Extension for Enum module
   """
 
   @doc """
-  Hello world.
+  zips two enumerables into a map
 
   ## Examples
-
-      iex> SEnum.hello()
-      :world
-
+    iex> SEnum.zip_into_map([:a, :b, :c], [1, 2, 3])
+    %{a: 1, b: 2, c: 3}
   """
-  def hello do
-    :world
+  @spec zip_into_map(Enum.t, Enum.t) :: Map.t
+  def zip_into_map(enumerable1, enumerable2) do
+    Enum.zip(enumerable1, enumerable2)
+    |> Enum.into(%{})
   end
 end
